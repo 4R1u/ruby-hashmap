@@ -24,5 +24,6 @@ class HashMap
     else
       @buckets[bucket_number] << [key, value]
     end
+    value
   end
 end
