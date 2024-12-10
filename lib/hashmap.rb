@@ -46,15 +46,15 @@ class HashMap
   end
 
   def values
-    keys = []
-    @buckets.each { |bucket| bucket.each { |entry| keys << entry[1] } }
-    keys
+    values = []
+    @buckets.each { |bucket| bucket.each { |entry| values << entry[1] } }
+    values
   end
 
   def entries
-    keys = []
-    @buckets.each { |bucket| bucket.each { |entry| keys << entry } }
-    keys
+    entries = []
+    @buckets.each { |bucket| bucket.each { |entry| entries << entry } }
+    entries
   end
 
   private
