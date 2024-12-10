@@ -30,6 +30,7 @@ class HashMap
     index = @buckets[bucket_number].find_index { |entry| entry[0] == key }
     return unless index
 
+    @length -= 1
     @buckets[bucket_number].delete_at(index)[1]
   end
 
