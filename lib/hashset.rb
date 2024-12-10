@@ -28,11 +28,11 @@ class HashSet
 
   def remove(key)
     bucket_number = hash(key) % @capacity
-    index = @buckets[bucket_number].find_index { |entry| entry[0] == key }
+    index = @buckets[bucket_number].find_index(key)
     return unless index
 
     @length -= 1
-    @buckets[bucket_number].delete_at(index)[1]
+    @buckets[bucket_number].delete_at(index)
   end
 
   def clear
