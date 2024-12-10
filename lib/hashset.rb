@@ -15,6 +15,7 @@ class HashSet
     bucket_number = hash(key) % @capacity
     return key if @buckets[bucket_number].find_index(key)
 
+    @length += 1
     @buckets[bucket_number] << key
   end
 
