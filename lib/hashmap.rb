@@ -34,6 +34,11 @@ class HashMap
     @buckets[bucket_number].delete_at(index)[1]
   end
 
+  def clear
+    @buckets = Array.new(@capacity) { [] }
+    @length = 0
+  end
+
   private
 
   def grow_buckets
