@@ -21,6 +21,12 @@ class HashMap
     end
   end
 
+  def get(key)
+    return unless (pair = @buckets[hash(key) % @capacity].find { |entry| entry[0] == key })
+
+    pair[1]
+  end
+
   def has?(key)
     @buckets[hash(key) % @capacity].any? { |entry| entry[0] == key }
   end
