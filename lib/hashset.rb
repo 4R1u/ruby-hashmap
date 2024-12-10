@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-# Hashmap Implementation
-class HashMap
+# Set Implementation, Like a Hashmap But with no Values
+class HashSet
   attr_reader :length
 
   def initialize(capacity = 16, load_factor = 0.875)
