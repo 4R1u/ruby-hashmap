@@ -19,7 +19,7 @@ class HashSet
   end
 
   def get(key)
-    @buckets[hash(key) % @capacity].find { |entry| entry[0] == key }
+    @buckets[hash(key) % @capacity].find { |entry| entry == key }
   end
 
   def has?(key)
