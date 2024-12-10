@@ -42,20 +42,8 @@ class HashSet
 
   def keys
     keys = []
-    @buckets.each { |bucket| bucket.each { |entry| keys << entry[0] } }
+    @buckets.each { |bucket| bucket.each { |entry| keys << entry } }
     keys
-  end
-
-  def values
-    values = []
-    @buckets.each { |bucket| bucket.each { |entry| values << entry[1] } }
-    values
-  end
-
-  def entries
-    entries = []
-    @buckets.each { |bucket| bucket.each { |entry| entries << entry } }
-    entries
   end
 
   private
