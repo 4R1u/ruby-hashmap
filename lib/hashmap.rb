@@ -62,7 +62,7 @@ class HashMap
   def grow_buckets
     entries = []
     @buckets.each { |bucket| bucket.each { |entry| entries << entry } }
-    @buckets = Array.new(@capacity += 1) { [] }
+    @buckets = Array.new(@capacity *= 2) { [] }
     entries.each { |entry| @buckets[hash(entry[0]) % @capacity] << entry }
   end
 
