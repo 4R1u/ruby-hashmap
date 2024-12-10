@@ -45,6 +45,12 @@ class HashMap
     keys
   end
 
+  def values
+    keys = []
+    @buckets.each { |bucket| bucket.each { |entry| keys << entry[1] } }
+    keys
+  end
+
   private
 
   def grow_buckets
