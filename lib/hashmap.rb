@@ -16,4 +16,13 @@ class HashMap
 
     hash_code
   end
+
+  def set(key, value)
+    bucket_number = hash(key) % @capacity
+    if (index = @buckets[bucket_number].find_index { |entry| entry[0] == key })
+      @buckets[bucket_number][index][1] = value
+    else
+      @buckets[bucket_number] << [key, value]
+    end
+  end
 end
