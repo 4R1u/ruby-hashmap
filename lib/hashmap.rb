@@ -14,8 +14,8 @@ class HashMap
     if (index = @buckets[bucket_number].find_index { |entry| entry[0] == key })
       @buckets[bucket_number][index][1] = value
     else
-      @buckets[bucket_number] << [key, value]
       grow_buckets if (@entries += 1) > @capacity * @load_factor
+      @buckets[bucket_number] << [key, value]
     end
   end
 
