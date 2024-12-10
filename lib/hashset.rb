@@ -15,7 +15,7 @@ class HashSet
     bucket_number = hash(key) % @capacity
     return key if @buckets[bucket_number].find_index(key)
 
-    @length += 1
+    grow_buckets if (@length += 1) > @load_factor * @capacity
     @buckets[bucket_number] << key
   end
 
