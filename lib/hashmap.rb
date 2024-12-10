@@ -15,6 +15,7 @@ class HashMap
       @buckets[bucket_number][index][1] = value
     else
       @buckets[bucket_number] << [key, value]
+      @entries += 1
     end
   end
 
