@@ -19,6 +19,10 @@ class HashMap
     end
   end
 
+  def has?(key)
+    @buckets[hash(key) % @capacity].any? { |entry| entry[0] == key }
+  end
+
   private
 
   def grow_buckets
