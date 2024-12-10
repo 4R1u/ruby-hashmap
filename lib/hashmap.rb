@@ -15,11 +15,18 @@ class HashMap
       @buckets[bucket_number][index][1] = value
     else
       @buckets[bucket_number] << [key, value]
-      @entries += 1
+      grow_buckets if (@entries += 1) > @capacity * @load_factor
     end
   end
 
   private
+
+  def grow_buckets
+    entries = []
+    @buckets.each { |bucket| bucket.each { |entry| entries << entry } }
+    @buckets = Array.new(@capacity += 1) { [] }
+    entries.each { |entry| @buckets[hash(entry[0]) % @capacity] << entry }
+  end
 
   def hash(key)
     hash_code = 0
