@@ -2,6 +2,8 @@
 
 # Hashmap Implementation
 class HashMap
+  attr_reader :length
+
   def initialize(capacity = 16, load_factor = 0.875)
     @capacity = capacity
     @load_factor = load_factor
