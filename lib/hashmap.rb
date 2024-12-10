@@ -23,6 +23,14 @@ class HashMap
     @buckets[hash(key) % @capacity].any? { |entry| entry[0] == key }
   end
 
+  def remove(key)
+    bucket_number = hash(key) % @capacity
+    index = @buckets[bucket_number].find_index { |entry| entry[0] == key }
+    return unless index
+
+    @buckets[bucket_number].delete_at(index)[1]
+  end
+
   private
 
   def grow_buckets
