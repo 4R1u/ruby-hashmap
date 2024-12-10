@@ -18,6 +18,10 @@ class HashSet
     @buckets[bucket_number] << key
   end
 
+  def get(key)
+    @buckets[hash(key) % @capacity].find { |entry| entry[0] == key }
+  end
+
   def has?(key)
     @buckets[hash(key) % @capacity].any? { |entry| entry[0] == key }
   end
