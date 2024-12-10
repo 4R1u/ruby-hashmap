@@ -23,7 +23,7 @@ class HashSet
   end
 
   def has?(key)
-    @buckets[hash(key) % @capacity].any? { |entry| entry[0] == key }
+    @buckets[hash(key) % @capacity].any?(key)
   end
 
   def remove(key)
