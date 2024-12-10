@@ -6,7 +6,7 @@ class HashMap
     @capacity = capacity
     @load_factor = load_factor
     @buckets = Array.new(capacity) { [] }
-    @entries = 0
+    @length = 0
   end
 
   def set(key, value)
@@ -14,7 +14,7 @@ class HashMap
     if (index = @buckets[bucket_number].find_index { |entry| entry[0] == key })
       @buckets[bucket_number][index][1] = value
     else
-      grow_buckets if (@entries += 1) > @capacity * @load_factor
+      grow_buckets if (@length += 1) > @capacity * @load_factor
       @buckets[bucket_number] << [key, value]
     end
   end
