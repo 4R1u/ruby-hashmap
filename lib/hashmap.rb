@@ -5,6 +5,7 @@ class HashMap
   def initialize(capacity = 16, load_factor = 0.875)
     @capacity = capacity
     @load_factor = load_factor
+    @buckets = Array.new(capacity) { [] }
   end
 
   def hash(key)
